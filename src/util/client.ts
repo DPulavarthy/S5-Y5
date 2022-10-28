@@ -1,15 +1,15 @@
 // Import dependencies.
 import { Client, Collection, Interaction, Message, Options, User, ChatInputApplicationCommandData, ChatInputCommandInteraction } from 'discord.js';
-import { Preload, Handler, Cache } from '#manager';
+import { Preload, Handler, Scraper } from '#manager';
 
 // Declare a custom global client interface.
-export default interface Eden extends Client {
+export default interface S5Y5 extends Client {
     (): void;
     _commands: Collection<string, Meta>;
 }
 
 // Client options.
-export default class Eden extends Client {
+export default class S5Y5 extends Client {
 
     public constructor() {
 
@@ -31,9 +31,6 @@ export default class Eden extends Client {
         // Listen to the interactionCreate event.
         this.on('interactionCreate', this.interaction);
 
-        // Load cache manager.
-        Cache.load();
-
         // Load commands and login to the Discord API.
         Handler.load(this).then(() => this.login(process.env.TOKEN)).catch(error => { throw new Error(error) });
 
@@ -43,7 +40,7 @@ export default class Eden extends Client {
      * The ready event handler.
      * 
      * @returns {void}
-     * @memberof Eden
+     * @memberof S5Y5
      * 
      */
     private ready(): void {
@@ -60,6 +57,10 @@ export default class Eden extends Client {
                 icon_url: this.user?.displayAvatarURL() || '',
             },
         }
+
+        Scraper.check()
+
+        setInterval(Scraper.check, 1000 * 60 * 5)
     };
 
     /**

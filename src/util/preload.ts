@@ -1,13 +1,13 @@
 // Import dependencies.
 import { config } from 'dotenv';
-import { Eden, Command as Base } from '#manager';
+import { S5Y5, Command as Base } from '#manager';
 import { ApplicationCommandOptionType, ChatInputCommandInteraction, ApplicationCommandOptionData } from 'discord.js';
 
 
 declare global {
 
     // Declare a global client.
-    var client: Eden;
+    var client: S5Y5;
 
     // Declare a global command base.
     var Command: typeof Base;

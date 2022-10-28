@@ -1,5 +1,5 @@
 // Import dependencies.
-import { Eden } from '#manager';
+import { S5Y5 } from '#manager';
 import { Collection } from 'discord.js';
 import { readdirSync, readFileSync } from 'fs';
 
@@ -8,10 +8,10 @@ export default class Handler {
     /**
      * Load commands into cache.
      * 
-     * @param {Eden} client - The client object.
+     * @param {S5Y5} client - The client object.
      * @returns {Promise<void>} 
      */
-    static load(client: Eden): Promise<unknown> {
+    static load(client: S5Y5): Promise<unknown> {
         return new Promise(async (resolve: Function, reject: Function): Promise<unknown> => {
             try {
 
@@ -35,7 +35,7 @@ export default class Handler {
      * @param {string} path - The path to the directory.
      * @returns {void}
      */
-    private static async read(client: Eden, path: string): Promise<void> {
+    private static async read(client: S5Y5, path: string): Promise<void> {
 
         // Read the directory and remove typings.
         const filtered: string[] = readdirSync(path).filter((file: string) => !file.endsWith('.d.ts'));
@@ -60,7 +60,7 @@ export default class Handler {
      * @param {string} file - The file name of the command.
      * @returns {void}
      */
-    private static async build(client: Eden, path: string, file: string): Promise<void> {
+    private static async build(client: S5Y5, path: string, file: string): Promise<void> {
 
         // Import file.
         const command = await import(`../../${path}/${file}`);
