@@ -1,25 +1,10 @@
 {
-  "name": "s5y5",
-  "version": "1.0.0",
-  "description": "Your personal Discord assistant.",
-  "main": "lib/index.js",
-  "imports": {
-    "#manager": "./lib/util/manager.js"
-  },
   "scripts": {
-    "prebuild": "node util/cleanup.mjs",
-    "build": "npx tsc",
-    "prestart": "npm run build --silent",
     "start": "node ."
   },
-  "author": "Kurasad",
-  "license": "GNU",
-  "devDependencies": {
-    "typescript": "^4.8.3"
-  },
   "dependencies": {
-    "discord.js": "^14.3.0",
-    "dotenv": "^16.0.2",
-    "puppeteer": "^19.1.1"
+    "canvas": "^2.10.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
   }
 }
